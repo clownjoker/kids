@@ -1,42 +1,41 @@
-import React, {Component} from 'react';
-import {TextInput, TouchableOpacity, View, Text} from 'react-native';
-import {RegistStyle as styles} from '../Assets/Styles';
-import {H3} from 'native-base';
-import {postData} from '../utils/axios';
+import React, { Component } from "react"
+import { TextInput, TouchableOpacity, View, Text } from "react-native"
+import { RegistStyle as styles } from "../Assets/Styles"
+import { H3 } from "native-base"
+import { postData } from "../utils/axios"
 
 export default class SignupScreen extends Component {
-  state = {
-    _id: null,
-    KindergartenId: null,
-    Phone: null,
-  };
+  // state = {
+  //   _id: null,
+  //   KindergartenId: null,
+  //   Phone: null,
+  // };
 
-  componentDidMount() {
-    const {_id, Kindergarten, Phone} = this.props.route.params;
-    this.setState({_id, KindergartenId: Kindergarten, Phone});
-  }
+  // componentDidMount() {
+  //   const {_id, Kindergarten, Phone} = this.props.route.params;
+  //   this.setState({_id, KindergartenId: Kindergarten, Phone});
+  // }
 
-  handleSignup = data => {
+  handleSignup = (data) => {
     if (data.Password === data.ConfirmPassword) {
-      postData({...data, ...this.state}, 'auth/signup')
+      postData(data, "auth/signup")
         .then(() => {
-          console.log(data);
-          this.props.navigation.navigate('LoginScreen');
+          this.props.navigation.navigate("LoginScreen")
         })
-        .catch(err => {
-          alert(err);
-        });
+        .catch((err) => {
+          alert(err)
+        })
     } else {
-      alert(false);
+      alert(false)
     }
-  };
+  }
 
   render() {
     return (
       <View style={styles.registContiner}>
         <Signup handleSignup={this.handleSignup} />
       </View>
-    );
+    )
   }
 }
 
@@ -45,8 +44,8 @@ class Signup extends Component {
     Name: null,
     Email: null,
     Address: null,
-    Password: null,
-  };
+    Password: null
+  }
   render() {
     return (
       <View style={styles.form}>
@@ -54,31 +53,37 @@ class Signup extends Component {
           <H3>Signup </H3>
           <TextInput
             style={styles.inputRegist}
-            onChangeText={Name => this.setState({Name})}
+            onChangeText={(Name) => this.setState({ Name })}
             placeholder="Name"
           />
           <TextInput
             style={styles.inputRegist}
-            keyboardType={'email-address'}
+            keyboardType={"email-address"}
             placeholder="Email"
-            onChangeText={Email => this.setState({Email})}
+            onChangeText={(Email) => this.setState({ Email })}
           />
           <TextInput
             style={styles.inputRegist}
-            onChangeText={Address => this.setState({Address})}
+            onChangeText={(Address) => this.setState({ Address })}
             placeholder="Address"
           />
           <TextInput
             style={styles.inputRegist}
-            secureTextEntry={true}
-            placeholder="Password"
-            onChangeText={Password => this.setState({Password})}
+            onChangeText={(Phone) => this.setState({ Phone })}
+            placeholder="0912345678"
+            keyboardType="number-pad"
           />
           <TextInput
             style={styles.inputRegist}
             secureTextEntry={true}
             placeholder="Password"
-            onChangeText={ConfirmPassword => this.setState({ConfirmPassword})}
+            onChangeText={(Password) => this.setState({ Password })}
+          />
+          <TextInput
+            style={styles.inputRegist}
+            secureTextEntry={true}
+            placeholder="Password"
+            onChangeText={(ConfirmPassword) => this.setState({ ConfirmPassword })}
           />
           <TouchableOpacity
             onPress={() => this.props.handleSignup(this.state)}
@@ -87,6 +92,6 @@ class Signup extends Component {
           </TouchableOpacity>
         </View>
       </View>
-    );
+    )
   }
 }

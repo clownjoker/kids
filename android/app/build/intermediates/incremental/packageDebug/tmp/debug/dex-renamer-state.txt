@@ -1,4 +1,4 @@
-#Sat Feb 22 17:11:01 CAT 2020
-base.0=/home/joker/Documents/firstApp/kids/android/app/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
+#Sat Feb 22 20:23:07 CAT 2020
+base.0=/home/elsiddig/Projects/ScriptHouse Projects/kids/android/app/build/intermediates/transforms/dexMerger/debug/0
 renamed.0=classes.dex
+path.0=classes.dex

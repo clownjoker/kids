@@ -1,9 +1,10 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import { View, Text, TextInput, TouchableOpacity, ActivityIndicator, Image } from "react-native"
 import { RegesterStyles as styles } from "../Assets/Styles"
 import Icon from "react-native-vector-icons/FontAwesome"
 import { getData, getItemFromAsyncStorage } from "../utils/axios"
 import { WarningMessage } from "../FlashMessages"
+import { Header, Left, Right } from "native-base"
 
 export default class RegisterScreen extends Component {
   state = { noAccount: false }
@@ -32,10 +33,10 @@ export default class RegisterScreen extends Component {
           this.setState({ isLoading: false })
           if (data.status === 404) {
             this.setState({ noAccount: true })
-          } else if (data.Name) {
+          } else if (data.isActive) {
             this.props.navigation.navigate("LoginScreen")
-          } else {
-            this.props.navigation.navigate("SignupScreen", data)
+          } else if (data.isActive === false) {
+            this.props.navigation.navigate("SignupScreen")
           }
         })
         .catch((err) => {
@@ -49,34 +50,49 @@ export default class RegisterScreen extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation
     return (
-      <View style={styles.container}>
-        <View style={styles.formContainer}>
-          <View style={styles.header}>
-            <View style={styles.about}>
-              <Image
-                source={require("../Assets/Images/Icons/logo.webp")}
-                style={{ alignSelf: "center", width: 140, height: 140 }}
-              />
-              <Text style={{ textAlign: "center", fontSize: 17 }}>قم بتسجيل روضتك الان </Text>
+      <Fragment>
+        <Header style={{ backgroundColor: "white" }}>
+          <Left>
+            <TouchableOpacity onPress={() => navigate("LoginScreen")}>
+              <Text style={{ color: "skyblue" }}>Login</Text>
+            </TouchableOpacity>
+          </Left>
+          <Right>
+            <TouchableOpacity onPress={() => navigate("SignupScreen")}>
+              <Text style={{ color: "skyblue" }}>Signup</Text>
+            </TouchableOpacity>
+          </Right>
+        </Header>
+        <View style={styles.container}>
+          <View style={styles.formContainer}>
+            <View style={styles.header}>
+              <View style={styles.about}>
+                <Image
+                  source={require("../Assets/Images/Icons/logo.webp")}
+                  style={{ alignSelf: "center", width: 140, height: 140 }}
+                />
+                <Text style={{ textAlign: "center", fontSize: 17 }}>قم بتسجيل روضتك الان </Text>
+              </View>
+              <Text style={styles.headerTitle}>التأكد من رقم هاتفك</Text>
             </View>
-            <Text style={styles.headerTitle}>التأكد من رقم هاتفك</Text>
-          </View>
 
-          {this.state.noAccount ? (
-            <WarningMessage
-              title={"هل تريد تسجيل روضة خاصة بك! يمكنك الان بالضغط على الزر الاسفل"}
+            {this.state.noAccount ? (
+              <WarningMessage
+                title={"هل تريد تسجيل روضة خاصة بك! يمكنك الان بالضغط على الزر الاسفل"}
+              />
+            ) : null}
+            <Form
+              noAccount={this.state.noAccount}
+              isLoading={this.state.isLoading}
+              noAccount={this.state.noAccount}
+              addKindergarten={this.addKindergarten}
+              handleRegistration={this.handleRegistration}
             />
-          ) : null}
-          <Form
-            noAccount={this.state.noAccount}
-            isLoading={this.state.isLoading}
-            noAccount={this.state.noAccount}
-            addKindergarten={this.addKindergarten}
-            handleRegistration={this.handleRegistration}
-          />
+          </View>
         </View>
-      </View>
+      </Fragment>
     )
   }
 }

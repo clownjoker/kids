@@ -1,19 +1,19 @@
-import React, {Component} from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
-import {privatePost, getItemFromAsyncStorage} from '../utils/axios';
+import React, { Component } from "react"
+import { View, Text, TextInput, TouchableOpacity } from "react-native"
+import { privatePost, getItemFromAsyncStorage } from "../utils/axios"
 import {
   AddstudentStyle as styles,
   RegesterStyles as styles2,
-  LoginStyle as styles3,
-} from '../Assets/Styles';
-import {Header, Left, Right} from 'native-base';
+  LoginStyle as styles3
+} from "../Assets/Styles"
+import { Header, Left, Right } from "native-base"
 // import {} from '../utils/axios';
 
 export default class AdminHomeScreen extends Component {
   render() {
     return (
       <View>
-        <Header style={{backgroundColor: 'white'}}>
+        <Header style={{ backgroundColor: "white" }}>
           <Left>
             <Text>Add Teacher</Text>
           </Left>
@@ -23,52 +23,47 @@ export default class AdminHomeScreen extends Component {
         </Header>
         <Form handleAddTeacher={this.handleAddTeacher} />
       </View>
-    );
+    )
   }
 
-  handleAddTeacher = async data => {
+  handleAddTeacher = async (data) => {
     const extra = {
       isTeacher: true,
-      isAdmin: false,
-    };
+      isAdmin: false
+    }
 
-    let kid = await getItemFromAsyncStorage('KindergartenId');
+    let kid = await getItemFromAsyncStorage("KindergartenId")
 
-    privatePost({...data, ...extra}, 'users/addUser/' + kid)
-      .then(({data}) => {
-        console.log(data);
+    privatePost({ ...data, ...extra }, "users/addUser/" + kid)
+      .then(({ data }) => {
+        console.log(data)
       })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 }
 
 class Form extends Component {
-  state = {};
+  state = {}
   render() {
     return (
       <View style={styles.form}>
         <View style={styles.formBody}>
-          <TextInput
-            
-            placeholder="الاسم"
-            onChangeText={name => this.setState({Name: name})}
-          />
+          <TextInput placeholder="الاسم" onChangeText={(name) => this.setState({ Name: name })} />
         </View>
 
         <View style={styles.formBody}>
           <TextInput
-            
             placeholder="العنوان"
-            onChangeText={address => this.setState({Address: address})}
+            onChangeText={(address) => this.setState({ Address: address })}
           />
         </View>
         <View style={styles.formBody}>
           <TextInput
-            
+            keyboardType="phone-pad"
             placeholder="رقم الهاتف"
-            onChangeText={phone => this.setState({Phone: phone})}
+            onChangeText={(phone) => this.setState({ Phone: phone })}
           />
         </View>
 
@@ -78,6 +73,6 @@ class Form extends Component {
           <Text style={styles3.login}>حفظ</Text>
         </TouchableOpacity>
       </View>
-    );
+    )
   }
 }
