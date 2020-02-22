@@ -1,14 +1,10 @@
 {
     "logs": [
         {
-<<<<<<< HEAD
             "outputFile": "/home/joker/Documents/firstApp/kids/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v28/values-v28.xml",
-=======
-            "outputFile": "/home/elsiddig/Projects/ScriptHouse Projects/kids/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v28/values-v28.xml",
->>>>>>> 78db497a074fcd2f847deecb310c460af3b4ee13
             "map": [
                 {
-                    "source": "/home/elsiddig/.gradle/caches/transforms-2/files-2.1/acc505aefcfa1ba0a5399002ee1fb299/res/values-v28/values-v28.xml",
+                    "source": "/home/joker/.gradle/caches/transforms-2/files-2.1/581de550b93db6b4f556a4e7cdcaa43d/res/values-v28/values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -18,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/home/elsiddig/.gradle/caches/transforms-2/files-2.1/b8bfb61b60f25fe2733b5b4a0bff4242/res/values-v28/values-v28.xml",
+                    "source": "/home/joker/.gradle/caches/transforms-2/files-2.1/fda264295e6e25da64280535ad6e6f45/res/values-v28/values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

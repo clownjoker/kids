@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-#Sat Feb 22 14:26:31 CAT 2020
+#Sat Feb 22 17:11:01 CAT 2020
 base.0=/home/joker/Documents/firstApp/kids/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
-=======
-#Sat Feb 22 13:57:47 CAT 2020
-base.0=/home/elsiddig/Projects/ScriptHouse Projects/kids/android/app/build/intermediates/transforms/dexMerger/debug/0
->>>>>>> 78db497a074fcd2f847deecb310c460af3b4ee13
 renamed.0=classes.dex
-path.0=classes.dex

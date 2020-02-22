@@ -46,7 +46,7 @@ export default class AddActivityScreen extends Component {
         <Text>{this.state.type}</Text>
         <MenuProvider>
           <TextInput
-            style={styles.input}
+            
             placeholder="اسم المادة"
             onChangeText={Subject => this.setState({Subject})}
           />
