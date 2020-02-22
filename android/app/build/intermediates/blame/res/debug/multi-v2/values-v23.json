@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/joker/Documents/firstApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
+            "outputFile": "/home/joker/Documents/firstApp/kids/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "/home/joker/.gradle/caches/transforms-2/files-2.1/2b82980f1d04940a7abb0b471174662c/res/values-v23/values-v23.xml",

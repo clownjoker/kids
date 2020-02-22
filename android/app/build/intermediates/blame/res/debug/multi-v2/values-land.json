@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/joker/Documents/firstApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
+            "outputFile": "/home/joker/Documents/firstApp/kids/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml",
             "map": [
                 {
                     "source": "/home/joker/.gradle/caches/transforms-2/files-2.1/581de550b93db6b4f556a4e7cdcaa43d/res/values-land/values-land.xml",

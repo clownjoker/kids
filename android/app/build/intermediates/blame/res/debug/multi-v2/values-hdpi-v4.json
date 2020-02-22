@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/joker/Documents/firstApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+            "outputFile": "/home/joker/Documents/firstApp/kids/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
             "map": [
                 {
                     "source": "/home/joker/.gradle/caches/transforms-2/files-2.1/fda264295e6e25da64280535ad6e6f45/res/values-hdpi-v4/values-hdpi-v4.xml",
