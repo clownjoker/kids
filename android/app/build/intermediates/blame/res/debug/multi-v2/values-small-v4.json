@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/joker/Documents/firstApp/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-small-v4/values-small-v4.xml",
+            "outputFile": "/home/elsiddig/Projects/ScriptHouse Projects/kids/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "/home/joker/.gradle/caches/transforms-2/files-2.1/581de550b93db6b4f556a4e7cdcaa43d/res/values-small-v4/values-small-v4.xml",
+                    "source": "/home/elsiddig/.gradle/caches/transforms-2/files-2.1/acc505aefcfa1ba0a5399002ee1fb299/res/values-small-v4/values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

@@ -1,123 +1,135 @@
-import React, {Component} from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
-import {RegesterStyles as styles} from '../Assets/Styles';
-import {getData, getItemFromAsyncStorage} from '../utils/axios';
+import React, { Component } from "react"
+import { View, Text, TextInput, TouchableOpacity, ActivityIndicator, Image } from "react-native"
+import { RegesterStyles as styles } from "../Assets/Styles"
+import Icon from "react-native-vector-icons/FontAwesome"
+import { getData, getItemFromAsyncStorage } from "../utils/axios"
+import { WarningMessage } from "../FlashMessages"
 
 export default class RegisterScreen extends Component {
-  state = {noAccount: false};
+  state = { noAccount: false }
   async UNSAFE_componentWillMount() {
-    let token = getItemFromAsyncStorage('token');
+    let token = getItemFromAsyncStorage("token")
     token
       .then(async () => {
-        let isTeacher = await getItemFromAsyncStorage('isTeacher');
-        let isAdmin = await getItemFromAsyncStorage('isAdmin');
-        console.log(isTeacher);
+        let isTeacher = await getItemFromAsyncStorage("isTeacher")
+        let isAdmin = await getItemFromAsyncStorage("isAdmin")
 
         if (isTeacher) {
-          this.props.navigation.navigate('TeacherHomeScreen');
+          this.props.navigation.navigate("TeacherHomeScreen")
         } else if (isAdmin) {
-          this.props.navigation.navigate('AdminHomeScreen');
+          this.props.navigation.navigate("AdminHomeScreen")
         } else {
-          this.props.navigation.navigate('ParentHomeScreen');
+          this.props.navigation.navigate("ParentHomeScreen")
         }
       })
-      .catch(err => {
-        //
-      });
+      .catch((err) => {})
   }
-  handleRegistration = Phone => {
-    getData('auth/getUserByPhone/' + Phone)
-      .then(({data}) => {
-        if (data.status === 404) {
-          this.setState({noAccount: true});
-        } else if (data.Name) {
-          this.props.navigation.navigate('LoginScreen');
-        } else {
-          this.props.navigation.navigate('SignupScreen', data);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  handleRegistration = (Phone) => {
+    this.setState({ isLoading: true })
+    setTimeout(() => {
+      getData("auth/getUserByPhone/" + Phone)
+        .then(({ data }) => {
+          this.setState({ isLoading: false })
+          if (data.status === 404) {
+            this.setState({ noAccount: true })
+          } else if (data.Name) {
+            this.props.navigation.navigate("LoginScreen")
+          } else {
+            this.props.navigation.navigate("SignupScreen", data)
+          }
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }, 3000)
+  }
 
   addKindergarten = () => {
-    this.props.navigation.navigate('AddKinderScreen');
-  };
+    this.props.navigation.navigate("AddKinderScreen")
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.formContainer}>
           <View style={styles.header}>
-            <Text style={styles.headerTitle}>Create Account.</Text>
-
-            <Test navigation={this.props.navigation} />
+            <View style={styles.about}>
+              <Image
+                source={require("../Assets/Images/Icons/logo.webp")}
+                style={{ alignSelf: "center", width: 140, height: 140 }}
+              />
+              <Text style={{ textAlign: "center", fontSize: 17 }}>قم بتسجيل روضتك الان </Text>
+            </View>
+            <Text style={styles.headerTitle}>التأكد من رقم هاتفك</Text>
           </View>
-          {/* // !!! */}
 
+          {this.state.noAccount ? (
+            <WarningMessage
+              title={"هل تريد تسجيل روضة خاصة بك! يمكنك الان بالضغط على الزر الاسفل"}
+            />
+          ) : null}
           <Form
+            noAccount={this.state.noAccount}
+            isLoading={this.state.isLoading}
             noAccount={this.state.noAccount}
             addKindergarten={this.addKindergarten}
             handleRegistration={this.handleRegistration}
           />
         </View>
       </View>
-    );
+    )
   }
 }
 
 class Form extends Component {
   state = {
-    Phone: null,
-  };
+    Phone: null
+  }
   render() {
     return (
       <View style={styles.form}>
         <View style={styles.formBody}>
-          {this.props.noAccount ? (
-            <View
-              style={{backgroundColor: 'red', padding: 10, borderRadius: 5}}>
-              <Text style={{color: 'white'}}>
-                No user with this phone, to add new kindergarten{' '}
-                <Text
-                  onPress={this.props.addKindergarten}
-                  style={{color: 'blue'}}>
-                  click here
-                </Text>
-              </Text>
+          <View style={styles.inputHandler}>
+            <Text>+249</Text>
+            <TextInput
+              keyboardType="phone-pad"
+              style={styles.input}
+              placeholder="912345678"
+              onChangeText={(e) => this.setState({ Phone: e })}
+            />
+            <View>
+              {this.props.isLoading ? (
+                <ActivityIndicator size="large" style={{ flex: 1 }} />
+              ) : (
+                <Icon
+                  onPress={() => this.props.handleRegistration(this.state.Phone)}
+                  color="skyblue"
+                  name="arrow-circle-right"
+                  size={30}
+                />
+              )}
             </View>
+          </View>
+          {this.props.noAccount ? (
+            <TouchableOpacity
+              onPress={this.props.addKindergarten}
+              style={{
+                backgroundColor: "skyblue",
+                width: 90,
+                padding: 5,
+                alignSelf: "center",
+                alignItems: "center",
+                marginTop: "45%",
+                borderRadius: 30
+              }}>
+              <Icon color="white" name="arrow-right" size={30} />
+            </TouchableOpacity>
           ) : null}
-          <TextInput
-            keyboardType="phone-pad"
-            style={styles.input}
-            placeholder="phone number"
-            onChangeText={e => this.setState({Phone: e})}
-          />
-          <TouchableOpacity
-            onPress={() => this.props.handleRegistration(this.state.Phone)}
-            style={styles.button}>
-            <Text>Register Now</Text>
-          </TouchableOpacity>
         </View>
-        <View>
-          <Text style={styles.options}>Already have one!</Text>
-        </View>
-        <View>
-          <TouchableOpacity style={styles.loginHere}>
-            <Text style={styles.log}>Login Here</Text>
-          </TouchableOpacity>
+        <View style={{ alignItems: "center" }}>
+          <Text style={styles.options}>كل الحقوق محفوظة 2020 ©. ScriptHouse</Text>
         </View>
       </View>
-    );
+    )
   }
-}
-function Test(props) {
-  return (
-    <TouchableOpacity
-      style={styles.loginHere}
-      onPress={() => props.navigation.navigate('LoginScreen')}>
-      <Text style={styles.log}>Do not have an account? create one.</Text>
-    </TouchableOpacity>
-  );
 }
