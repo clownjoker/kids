@@ -1,0 +1,6 @@
+{
+    "html.format.wrapLineLength": 120,
+    "json.format.enable": false,
+    "javascript.format.insertSpaceAfterConstructor": true,
+    "editor.defaultFormatter": "vscode.configuration-editing"
+}

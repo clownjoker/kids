@@ -1,20 +1,14 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "/home/joker/Documents/firstApp/kids/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-large-v4/values-large-v4.xml",
+=======
+            "outputFile": "/home/elsiddig/Projects/ScriptHouse Projects/kids/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-large-v4/values-large-v4.xml",
+>>>>>>> 78db497a074fcd2f847deecb310c460af3b4ee13
             "map": [
                 {
-                    "source": "/home/joker/.gradle/caches/transforms-2/files-2.1/fda264295e6e25da64280535ad6e6f45/res/values-large-v4/values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,185,256,326,396,464,532,636",
-                        "endColumns": "58,70,70,69,69,67,67,103,115",
-                        "endOffsets": "109,180,251,321,391,459,527,631,747"
-                    }
-                },
-                {
-                    "source": "/home/joker/.gradle/caches/transforms-2/files-2.1/581de550b93db6b4f556a4e7cdcaa43d/res/values-large-v4/values-large-v4.xml",
+                    "source": "/home/elsiddig/.gradle/caches/transforms-2/files-2.1/acc505aefcfa1ba0a5399002ee1fb299/res/values-large-v4/values-large-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -28,6 +22,16 @@
                         "startOffsets": "752,874",
                         "endColumns": "121,133",
                         "endOffsets": "869,1003"
+                    }
+                },
+                {
+                    "source": "/home/elsiddig/.gradle/caches/transforms-2/files-2.1/b8bfb61b60f25fe2733b5b4a0bff4242/res/values-large-v4/values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,532,636",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,631,747"
                     }
                 }
             ]
