@@ -51,7 +51,7 @@ class Form extends Component {
       <View style={styles.form}>
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            
             placeholder="الاسم"
             onChangeText={name => this.setState({Name: name})}
           />
@@ -59,14 +59,14 @@ class Form extends Component {
 
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            
             placeholder="العنوان"
             onChangeText={address => this.setState({Address: address})}
           />
         </View>
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            
             placeholder="رقم الهاتف"
             onChangeText={phone => this.setState({Phone: phone})}
           />

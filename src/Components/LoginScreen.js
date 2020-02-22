@@ -52,6 +52,7 @@ class Form extends Component {
             onChangeText={Phone => this.setState({Phone})}
             style={styles.inputlogin}
             placeholder="phone number"
+            keyboardType="number-pad"
           />
           <TextInput
             onChangeText={Password => this.setState({Password})}

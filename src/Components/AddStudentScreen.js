@@ -23,19 +23,19 @@ function Form(props) {
   return (
     <View style={styles.form}>
       <View style={styles.formBody}>
-        <TextInput style={styles2.input} placeholder="Name" />
+        <TextInput  placeholder="Name" />
       </View>
       <View style={styles.formBody}>
-        <TextInput style={styles2.input} placeholder="Level" />
+        <TextInput  placeholder="Level" />
       </View>
       <View style={styles.formBody}>
-        <TextInput style={styles2.input} placeholder="Name Father" />
+        <TextInput  placeholder="Name Father" />
       </View>
       <View style={styles.formBody}>
-        <TextInput style={styles2.input} placeholder="Address" />
+        <TextInput  placeholder="Address" />
       </View>
       <View style={styles.formBody}>
-        <TextInput style={styles2.input} placeholder="Date of Birth" />
+        <TextInput  placeholder="Date of Birth" />
       </View>
 
       <TouchableOpacity style={styles3.buttonlogin}>
