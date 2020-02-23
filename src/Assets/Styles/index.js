@@ -44,7 +44,8 @@ export const RegesterStyles = StyleSheet.create({
     borderBottomColor: "skyblue",
     borderBottomWidth: 2,
     marginLeft: 10,
-    marginRight: 10
+    marginRight: 10,
+    marginTop:6
   },
   input: {
     margin: 0,

@@ -19,28 +19,50 @@ export default class AddStudentScreen extends Component {
   }
 }
 
-function Form(props) {
-  return (
-    <View style={styles.form}>
-      <View style={styles.formBody}>
-        <TextInput  placeholder="Name" />
-      </View>
-      <View style={styles.formBody}>
-        <TextInput  placeholder="Level" />
-      </View>
-      <View style={styles.formBody}>
-        <TextInput  placeholder="Name Father" />
-      </View>
-      <View style={styles.formBody}>
-        <TextInput  placeholder="Address" />
-      </View>
-      <View style={styles.formBody}>
-        <TextInput  placeholder="Date of Birth" />
-      </View>
+class Form extends Component {
+  state = {
+    isAdmin: false,
+    isTeacher: false,
+    isActive
+    
+  };
+  render (){
+    return (
+      <View style={styles.form}>
+        <View style={styles.formBody}>
+          <TextInput  
+          placeholder="Name" styles={styles2.inputHandler} 
+          onChangeText={(name)=> this.setState({Name:name})}/>
+        </View>
+        <View style={styles.formBody}>
+          <TextInput 
+           placeholder="Level" styles={styles2.inputHandler}
+           onChangeText={(level)=> this.setState({Level:level})}/>
+        </View>
+        <View style={styles.formBody}>
+          <TextInput  
+          placeholder="Name Father" styles={styles2.inputHandler} 
+          onChangeText={(father)=> this.setState({Father:father})}/>
+        </View>
+        <View style={styles.formBody}>
+          <TextInput  placeholder="Phone" styles={styles2.inputHandler}
+          onChangeText={(phone)=> this.setState({Phone:phone})} />
+        </View>
+        <View style={styles.formBody}>
+          <TextInput  placeholder="Address" styles={styles2.inputHandler}
+          onChangeText={(address)=> this.setState({Address:address})}/>
+        </View>
+        <View style={styles.formBody}>
+          <TextInput  placeholder="Date of Birth" styles={styles2.inputHandler}
+          onChangeText={(dateOfBirth)=> this.setState({DateOfBirth:dateOfBirth})}/>
+        </View>
 
-      <TouchableOpacity style={styles3.buttonlogin}>
-        <Text style={styles3.login}>Save</Text>
-      </TouchableOpacity>
-    </View>
-  );
+  
+        <TouchableOpacity style={styles3.buttonlogin}>
+          <Text style={styles3.login}>Save</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+  
 }

@@ -31,6 +31,8 @@ export default class RegisterScreen extends Component {
       getData("auth/getUserByPhone/" + Phone)
         .then(({ data }) => {
           this.setState({ isLoading: false })
+          console.log(data);
+          
           if (data.status === 404) {
             this.setState({ noAccount: true })
           } else if (data.isActive) {

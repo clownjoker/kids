@@ -50,17 +50,20 @@ class Form extends Component {
     return (
       <View style={styles.form}>
         <View style={styles.formBody}>
-          <TextInput placeholder="الاسم" onChangeText={(name) => this.setState({ Name: name })} />
+          <TextInput placeholder="الاسم" onChangeText={(name) => this.setState({ Name: name })} 
+          styles={styles2.inputHandler}/>
         </View>
 
         <View style={styles.formBody}>
           <TextInput
+          styles={styles2.inputHandler}
             placeholder="العنوان"
             onChangeText={(address) => this.setState({ Address: address })}
           />
         </View>
         <View style={styles.formBody}>
           <TextInput
+          styles={styles2.inputHandler}
             keyboardType="phone-pad"
             placeholder="رقم الهاتف"
             onChangeText={(phone) => this.setState({ Phone: phone })}

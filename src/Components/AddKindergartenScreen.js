@@ -42,6 +42,7 @@ class Form extends Component {
   state = {
     isAdmin: true,
     isTeacher: false,
+    isActive:true
   };
 
   render() {
@@ -49,21 +50,21 @@ class Form extends Component {
       <View style={styles.form}>
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            style={styles2.inputHandler}
             placeholder="Kindergarten Name"
             onChangeText={KN => this.setState({K_Name: KN})}
           />
         </View>
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            style={styles2.inputHandler}
             placeholder="Kindergarten Address"
             onChangeText={KA => this.setState({K_Address: KA})}
           />
         </View>
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            style={styles2.inputHandler}
             placeholder="Description"
             onChangeText={Desc => this.setState({Description: Desc})}
           />
@@ -71,7 +72,7 @@ class Form extends Component {
 
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            style={styles2.inputHandler}
             keyboardType="number-pad"
             placeholder="License"
             onChangeText={Lic => {
@@ -81,7 +82,7 @@ class Form extends Component {
         </View>
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            style={styles2.inputHandler}
             placeholder="Expire Date"
             keyboardType="phone-pad"
             onChangeText={ED => this.setState({ExpireDate: ED})}
@@ -90,14 +91,14 @@ class Form extends Component {
 
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            style={styles2.inputHandler}
             placeholder="Admin Name"
             onChangeText={admainname => this.setState({Name: admainname})}
           />
         </View>
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            style={styles2.inputHandler}
             keyboardType="number-pad"
             placeholder="Admin Phone"
             onChangeText={phone => this.setState({Phone: phone})}
@@ -105,14 +106,14 @@ class Form extends Component {
         </View>
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            style={styles2.inputHandler}
             placeholder="Address"
             onChangeText={address => this.setState({Address: address})}
           />
         </View>
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            style={styles2.inputHandler}
             keyboardType="email-address"
             placeholder="Email"
             onChangeText={email => this.setState({Email: email})}
@@ -120,7 +121,7 @@ class Form extends Component {
         </View>
         <View style={styles.formBody}>
           <TextInput
-            style={styles2.input}
+            style={styles2.inputHandler}
             secureTextEntry={true}
             placeholder="Password"
             onChangeText={password => this.setState({Password: password})}
