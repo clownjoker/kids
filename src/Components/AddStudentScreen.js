@@ -8,6 +8,9 @@ import {
 } from '../Assets/Styles/';
 
 export default class AddStudentScreen extends Component {
+  addNewStudents = data=>{
+
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -59,6 +62,8 @@ class Form extends Component {
 
   
         <TouchableOpacity style={styles3.buttonlogin}>
+        onPress={() => this.props.addNewStudents(this.state)}
+    
           <Text style={styles3.login}>Save</Text>
         </TouchableOpacity>
       </View>
