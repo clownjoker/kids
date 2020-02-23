@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 import {
   Menu,
@@ -12,25 +13,30 @@ import {
   RegesterStyles as styles,
   LoginStyle as styles2,
 } from '../Assets/Styles';
+import {privatePost, getItemFromAsyncStorage} from '../utils/axios';
 
 export default class AddSortActivity extends Component {
-  state = {
-    type: null,
-  };
+  state = {};
 
-  handleType = type => {
-    this.setState({type});
-  };
+  
   render() {
     return (
       <View style={styles.container}>
         <Text>{this.state.type}</Text>
         <MenuProvider>
-          <TextInput style={styles.input} placeholder="Activity" />
-          <CustomMeun handleType={this.handleType} />
-
-          <TouchableOpacity style={styles2.buttonlogin}>
-            <Text style={styles2.login}>Send</Text>
+          <TextInput
+            
+            placeholder="اسم المادة"
+            onChangeText={Subject => this.setState({Subject})}
+          />
+          <PeriodMenu handlePeriod={this.handlePeriod} />
+          <SubjectTypeMenu handleSubjectType={this.handleSubjectType} />
+          <LevelMenu handleLevel={this.handleLevel} />
+          <TouchableOpacity
+            style={styles2.buttonlogin}
+            // onPress={this.handleSaveActivity}
+            >
+            <Text style={styles2.login}>حفظ </Text>
           </TouchableOpacity>
         </MenuProvider>
       </View>
@@ -40,19 +46,51 @@ export default class AddSortActivity extends Component {
 
 // some component
 
-function CustomMeun(props) {
+function PeriodMenu(props) {
   return (
     <Menu style={styles.menu}>
-      <MenuTrigger text="Select Activity" />
+      <MenuTrigger text="اختيار الفترة" />
       <MenuOptions>
-        <MenuOption onSelect={() => props.handleType('نشاط ديني')}>
-          <Text>نشاط ديني</Text>
+        <MenuOption onSelect={() => props.handlePeriod('الفترة الاولى')}>
+          <Text> الفترة الاولى</Text>
         </MenuOption>
-        <MenuOption onSelect={() => props.handleType('نشاط رياضي')}>
-          <Text>نشاط رياضي</Text>
+        <MenuOption onSelect={() => props.handlePeriod('الفترة الثانية')}>
+          <Text> الفترة الثانية</Text>
         </MenuOption>
-        <MenuOption onSelect={() => props.handleType('نشاط لغوي')}>
-          <Text>نشاط لغوي</Text>
+      </MenuOptions>
+    </Menu>
+  );
+}
+
+function SubjectTypeMenu(props) {
+  return (
+    <Menu style={styles.menu}>
+      <MenuTrigger text="اختيار نوع المادة" />
+      <MenuOptions>
+        <MenuOption onSelect={() => props.handleSubjectType(true)}>
+          <Text>مادة اساسية</Text>
+        </MenuOption>
+        <MenuOption onSelect={() => props.handleSubjectType(false)}>
+          <Text> مادة فرعية</Text>
+        </MenuOption>
+      </MenuOptions>
+    </Menu>
+  );
+}
+
+function LevelMenu(props) {
+  return (
+    <Menu style={styles.menu}>
+      <MenuTrigger text="اختيار  المستوى" />
+      <MenuOptions>
+        <MenuOption onSelect={() => props.handleLevel('براعم')}>
+          <Text> براعم</Text>
+        </MenuOption>
+        <MenuOption onSelect={() => props.handleLevel('المستوى الاول')}>
+          <Text> المستوى الاول</Text>
+        </MenuOption>
+        <MenuOption onSelect={() => props.handleLevel('المستوى الثاني')}>
+          <Text> المستوى الثاني</Text>
         </MenuOption>
       </MenuOptions>
     </Menu>
